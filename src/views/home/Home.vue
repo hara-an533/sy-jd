@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
+    <div>
         <nav-bar>
-            <div slot="left"></div>
-            <div slot="center"></div>
-            <div slot="right"></div>
+            <div slot="left">11</div>
+            <div slot="center">11</div>
+            <div slot="right">11</div>
         </nav-bar>
         <home-swiper></home-swiper>
         <seckill></seckill>
@@ -11,7 +11,6 @@
         <court-yard></court-yard>
         <stroll></stroll>
         <recommend></recommend>
-        <div>首页</div>
     </div>
 </template>
 
