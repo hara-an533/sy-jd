@@ -14,6 +14,28 @@ export default {
 
 <style>
 .nav-bar {
-    display: flex;
+    width: 100%;
+    height: 44px;
+}
+
+.nav-bar .left,
+.nav-bar .right {
+    width: 40px;
+    height: 44px;
+    position: absolute;
+    top: 0;
+}
+
+.nav-bar .left {
+    left: 0;
+}
+
+.nav-bar .center {
+    height: 44px;
+    margin: 0 50px;
+}
+
+.nav-bar .right {
+    right: 0;
 }
 </style>
