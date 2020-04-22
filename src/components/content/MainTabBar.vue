@@ -17,6 +17,8 @@ export default {
 <style>
 .main-tab-bar {
     display: flex;
+    z-index: 999;
+    background: white;
 }
 
 .main-tab-bar div {

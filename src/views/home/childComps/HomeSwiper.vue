@@ -11,45 +11,75 @@
     </div>
     <div class="triangle-left"></div>
     <div class="triangle-right"></div>
-    <ul class="home-swiper">
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo1.jpg" alt />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo2.jpg" alt />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo3.jpg" alt />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo4.jpg" alt />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo5.jpg" alt />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img src="../../../assets/images/lunbo6.jpg" alt />
-        </a>
-      </li>
-    </ul>
+     <swiper class="home-swiper" ref="mySwiper" :options="swiperOptions ">
+      <swiper-slide>
+        <img src="../../../assets/images/lunbo1.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo2.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo3.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo5.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo5.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo6.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo7.jpg" alt />
+      </swiper-slide>
+      <swiper-slide>
+         <img src="../../../assets/images/lunbo8.jpg" alt />
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
   </div>
 </template>
 
 <script>
+import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 
 export default {
-  name: "HomeSwiper"
+  name: "HomeSwiper",
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  directives: {
+    swiper: directive
+  },
+  name: "carrousel",
+  data() {
+    return {
+      swiperOptions: {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true, // 允许点击小圆点跳转
+          autoplay: true // 自动切换
+        },
+        // Some Swiper option/callback...
+        loop: true, // 循环
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false // 手动切换之后继续自动轮播
+        }
+      }
+    };
+  },
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
+    }
+  },
+  mounted() {
+    console.log("Current Swiper instance object", this.swiper);
+    this.swiper.slideTo(1, 1000, false);
+  }
 };
 </script>
 
@@ -164,21 +194,18 @@ export default {
 }
 
 .home-swiper {
-  position: absolute;
-  bottom: 0;
-  left: 13px;
-  width: 350px;
-  height: 140px;
-  background-color: tomato;
-  padding-inline-start: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  border-radius: 8px;
-  overflow: hidden;
+  width: 370.11px;
+  height: 148px;
+  border-radius: 5px;
 }
 
-.home-swiper a img {
-  width: 350px;
-  height: 140px;
+.home-swiper img {
+  width: 100%;
+  height: 100%;
 }
+
+.swiper-slide {
+  width: 100%;
+}
+
 </style>

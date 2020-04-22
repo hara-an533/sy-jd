@@ -8,6 +8,7 @@
 <script>
 import MainTabBar from './components/content/MainTabBar.vue'
 
+
 export default {
     name:'app',
     components:{
