@@ -14,8 +14,11 @@ export default {
 
 <style>
 .nav-bar {
+    position: fixed;
     width: 100%;
     height: 44px;
+    z-index: 999;
+    opacity: 1;
 }
 
 .nav-bar .left,

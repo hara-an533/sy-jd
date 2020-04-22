@@ -1,23 +1,27 @@
 <template>
-    <div>
-        <!-- <nav-bar>
-            <div slot="left">11</div>
-            <div slot="center">11</div>
-        </nav-bar> -->
-        <p>目录</p>
-    </div>
+  <div class="category_body">
+    <nav-bar></nav-bar>
+    <category-body></category-body>
+  </div>
 </template>
 
 <script>
-// import NavBar from '../../components/common/navbar/NavBar'
+import NavBar from "./childComps/NavBar";
+import CategoryBody from "./childComps/CategoryBody"
 
 export default {
   name: "Category",
-  components:{
-//   "nav-bar":NavBar,
+  components: {
+    "nav-bar": NavBar,
+    "category-body": CategoryBody
   }
 };
 </script>
 
-<style>
+<style scoped>
+.category_body {
+  height: 100%;
+  background-color: #fff;
+  /* overflow: hidden; */
+}
 </style>

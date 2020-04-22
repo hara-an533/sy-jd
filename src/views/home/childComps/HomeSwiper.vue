@@ -166,10 +166,9 @@ export default {
 .home-swiper {
   position: absolute;
   bottom: 0;
-  left: 13px;
-  width: 350px;
+  left: 3.5%;
+  width: 93%;
   height: 140px;
-  background-color: tomato;
   padding-inline-start: 0;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -178,7 +177,7 @@ export default {
 }
 
 .home-swiper a img {
-  width: 350px;
+  width: 100%;
   height: 140px;
 }
 </style>

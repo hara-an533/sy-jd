@@ -1,24 +1,24 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
     <main-tab-bar class="main-tab-bar"></main-tab-bar>
   </div>
 </template>
 
 <script>
-import MainTabBar from './components/content/MainTabBar.vue'
+import MainTabBar from "./components/content/MainTabBar.vue";
 
 export default {
-    name:'app',
-    components:{
-      'main-tab-bar':MainTabBar
-    }
-
-}
+  name: "app",
+  components: {
+    "main-tab-bar": MainTabBar
+  }
+};
 </script>
 
 <style>
-html,body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -33,6 +33,20 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
+em {
+  font-style: normal;
+}
+
+h4,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   position: relative;
   height: 100%;
@@ -43,10 +57,9 @@ a {
 .main-tab-bar {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -3px;
   width: 100%;
-  height: 5%;
+  height: 6%;
   text-align: center;
 }
-
 </style>
