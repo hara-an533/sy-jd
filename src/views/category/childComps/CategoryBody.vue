@@ -54,7 +54,7 @@
           <template slot="header">家电搜索</template>
         </category>
       </div>
-      <div class="branchList-div" v-show="i==1">
+      <div class="branchList-div" v-show="i==1" >
         <category>
           <template slot="header">手机通讯</template>
         </category>
@@ -305,8 +305,8 @@ export default {
       movey: 0,
       minTop: 0,
       min: 0,
-      maxTop: 0,
       max: 0,
+      maxTop: 0,
       minBouceTop: 0,
       minBouce: 0,
       maxBouceTop: 0,
@@ -319,24 +319,24 @@ export default {
   },
   methods: {
     touch(e) {
-      this.starty = e.targetTouches[0].clientY;
+      this.starty = e.targetTouches[0].pageY;
     },
     move(e) {
       this.movey = e.targetTouches[0].pageY - this.starty;
       this.min = this.$refs.cate.offsetHeight - this.$refs.branch.offsetHeight;
-      this.maxBouce = this.max + 120;
-      this.minBouce = this.min - 120;
+      this.maxBouce = this.max + 100;
+      this.minBouce = this.min - 100;
       if (
         this.Y + this.movey < this.minBouce ||
         this.Y + this.movey > this.maxBouce
       ) {
         return;
       }
-      this.$refs.cate.style.transition = "none";
-      this.$refs.cate.style.top = this.Y + this.movey + "px";
+      this.$refs.branch.style.transition = "none";
+      this.$refs.branch.style.top = this.Y + this.movey + "px";
     },
     end(e) {
-        if (this.Y + this.movey < this.min) {
+     if (this.Y + this.movey < this.min) {
         this.$refs.branch.style.transition = "all .5s";
         this.$refs.branch.style.top = this.min + "px";
         this.Y = this.min;
@@ -344,21 +344,19 @@ export default {
         this.$refs.branch.style.top = this.max + "px";
         this.$refs.branch.style.transition = "all .5s";
         this.Y = this.max;
-      } else {       
-      this.Y += this.movey;
+      } else {
+        this.Y += this.movey;
       }
     },
     tabTouch(e) {
-      //   console.log(this.$refs);
-      //   console.log(e);
       this.startY = e.targetTouches[0].clientY;
     },
     touchMove(e) {
       this.moveY = e.targetTouches[0].pageY - this.startY;
       this.minTop =
-      this.$refs.categoryTab.offsetHeight - this.$refs.tab.offsetHeight;
-      this.maxBouceTop = this.maxTop + 180;
-      this.minBouceTop = this.minTop - 180;
+        this.$refs.categoryTab.offsetHeight - this.$refs.tab.offsetHeight;
+      this.maxBouceTop = this.maxTop + 160;
+      this.minBouceTop = this.minTop - 160;
       //   console.log(this.minTop);
       if (
         this.y + this.moveY < this.minBouceTop ||
@@ -384,25 +382,27 @@ export default {
       }
     },
     tab(e) {
-      //   console.log(e.target.parentNode.children.length);
       for (let i = 0; i < e.target.parentNode.children.length; i++) {
         e.target.parentNode.children[i].classList.remove("current");
         e.target.parentNode.children[i].setAttribute("index", i);
       }
       e.target.classList.add("current");
-      //   console.log(e.target.getAttribute("index"));
       const index = e.target.getAttribute("index");
       this.i = index;
+      this.$refs.tab.style.transition = "top .5s";
       if (
-        e.target.parentNode.offsetTop >=
+        -index * e.target.offsetHeight <
         this.$refs.categoryTab.offsetHeight - this.$refs.tab.offsetHeight
       ) {
+        this.$refs.tab.style.top =
+          this.$refs.categoryTab.offsetHeight -
+          this.$refs.tab.offsetHeight +
+          "px";
+        this.y =
+          this.$refs.categoryTab.offsetHeight - this.$refs.tab.offsetHeight;
+      } else {
         this.$refs.tab.style.top = -(index * e.target.offsetHeight) + "px";
-        console.log(e.target.parentNode.offsetTop);
-        console.log(
-          this.$refs.categoryTab.offsetHeight - this.$refs.tab.offsetHeight
-        );
-        this.$refs.tab.style.transition = "all .5s";
+        this.y = -(index * e.target.offsetHeight);
       }
     }
   }
@@ -448,5 +448,11 @@ export default {
   overflow: hidden;
   height: 719px;
   width: 289px;
+}
+
+.branchList-content .branchList-div{
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 </style>

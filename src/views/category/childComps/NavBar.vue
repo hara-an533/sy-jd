@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
     <div slot="left" class="left"></div>
-    <input slot="center" class="center" placeholder="奶瓶消毒器" />
+    <input slot="center" class="center" placeholder="游戏本i7" />
     <i class="cat-icon"></i>
   </div>
 </template>

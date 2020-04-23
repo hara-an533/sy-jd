@@ -4,40 +4,59 @@ import Home from '../views/home/Home'
 import Category from '../views/category/Category.vue'
 import ShopCart from "../views/shopcart/ShopCart.vue"
 import Surprise from '../views/surprise/Surprise.vue'
-import Profile from "../views/profile/Profile.vue"
+import Profile from "../views/personal/Profile.vue"
+import GoodsDetail from '../views/category/GoodsDetail'
+import FrontView from '../views/FrontView'
+import {
+  Main
+} from 'element-ui'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
-    path: '/',
-    redirect: '/home'
+    path:'/',
+    redirect:'/main'
   },
   {
-    path:"/home",
-    name: 'Home',
-    component: Home
+    path: '/main',
+    component: FrontView,
+    redirect: "/main/home",
+    children: [{
+        path: "home",
+        name: 'Home',
+        component: Home
+      },
+      {
+        path: 'category',
+        name: 'Category',
+        component: Category,
+      },
+      {
+        path: 'surprise',
+        name: 'Surprise',
+        component: Surprise
+      },
+      {
+        path: 'shopcart',
+        name: 'ShopCart',
+        component: ShopCart
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
+      }
+    ]
   },
   {
-    path: '/category',
-    name: 'Category',
-    component: Category
+    path: "/main/category/:produts",
+    name:'GoodsDetail',
+    component: GoodsDetail
   },
-  {
-    path:'/surprise',
-    name:'Surprise',
-    component:Surprise
-  },
-  {
-    path:'/shopcart',
-    name:'ShopCart',
-    component:ShopCart 
-  },
-  {
-    path:'/profile',
-    name:'Profile',
-    component:Profile
-  }
+
+
+
 ]
 
 const router = new VueRouter({

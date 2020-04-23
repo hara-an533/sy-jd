@@ -5,11 +5,12 @@ import App from './App.vue'
 import router from "./router/index.js"
 // import store from "./store/index.js"
 
+
 import Category from './views/category/Category.vue'
 import Home from './views/home/Home.vue'
 import ShopCart from "./views/shopcart/ShopCart.vue"
 import Surprise from './views/surprise/Surprise.vue'
-import Profile from "./views/profile/Profile.vue"
+import Profile from "./views/personal/Profile.vue"
 // import countdown from "./views/home/childComps/SecKill.vue";
 
 // 饿了么

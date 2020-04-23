@@ -1,31 +1,76 @@
 <template>
-        <div class="main-tab-bar">
-            <router-link class="message" tag="div" to="/home">首页</router-link>
-            <router-link class="address-book" tag="div" to="/category">分类</router-link>
-            <router-link class="search" tag="div" to="/surprise">京喜</router-link>
-            <router-link class="search" tag="div" to="/shopcart">购物车</router-link>
-            <router-link class="meself" tag="div" to="/profile">登录</router-link>
-        </div> 
+  <div class="main-tab-bar">
+    <router-link class="main" tag="div" to="/main/home"></router-link>
+    <router-link class="category" tag="div" to="/main/category"></router-link>
+    <router-link class="surprise" tag="div" to="/main/surprise"></router-link>
+    <router-link class="cart" tag="div" to="/main/shopcart"></router-link>
+    <router-link class="login" tag="div" to="/main/profile"></router-link>
+  </div>
 </template>
 
 <script>
 export default {
-    name:'MainTabBar'
-}
+  name: "MainTabBar",
+  data() {
+    return {
+      currentIndex: 0
+    };
+  },
+  methods: {}
+};
 </script>
 
 <style>
 .main-tab-bar {
-    display: flex;
-    height: 46px;
-    line-height: 46px;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,.08);
-    text-align: center;
+  display: flex;
+  height: 46px;
+  line-height: 46px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
 
 .main-tab-bar div {
-    flex: 1;
+  flex: 1;
 }
 
+.main-tab-bar .main {
+  background: url(../../assets/images/main.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.main-tab-bar .category {
+  background: url(../../assets/images/cate.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.main-tab-bar .surprise {
+  background: url(../../assets/images/sur.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.main-tab-bar .cart {
+  background: url(../../assets/images/cart.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.main-tab-bar .login {
+  background: url(../../assets/images/img.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.router-link-active.main {
+  background: url(../../assets/images/main-r.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.router-link-active.category {
+  background: url(../../assets/images/category.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.router-link-active.cart {
+  background: url(../../assets/images/cart-r.png) no-repeat center;
+  background-size: 60px 46px;
+}
 </style>
