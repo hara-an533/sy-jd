@@ -8,57 +8,57 @@
         <li>
           <p class="huangtext">免息星球</p>
           <p class="guangtext2">白条免息购</p>
-            <div class="gungimh">
-             <img src="../../../assets/images/mianxi.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/mianxi.jpg" alt />
           </div>
         </li>
-         <li>
+        <li>
           <p class="huangtext">每日特价</p>
           <p class="guangtext2">9块9疯抢</p>
-            <div class="gungimh">
-             <img src="../../../assets/images/tejia99.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/tejia99.jpg" alt />
           </div>
         </li>
-         <li>
-        <p class="huangtext">品牌闪购</p>
+        <li>
+          <p class="huangtext">品牌闪购</p>
           <p class="guangtext2">汇大牌好价</p>
-             <div class="gungimh">
-             <img src="../../../assets/images/heixie.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/heixie.jpg" alt />
           </div>
         </li>
-         <li>
+        <li>
           <p class="huangtext">京东直播</p>
           <p class="guangtext2">边看边买</p>
-             <div class="gungimh">
-             <img src="../../../assets/images/jdzhibo.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/jdzhibo.jpg" alt />
           </div>
         </li>
-         <li>
+        <li>
           <p class="huangtext">排行榜</p>
           <p class="guangtext2">销量排行推荐</p>
-            <div class="gungimh">
-             <img src="../../../assets/images/naifen.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/naifen.jpg" alt />
           </div>
         </li>
         <li>
           <p class="huangtext">拍拍好物</p>
           <p class="guangtext2">iphone 5折起</p>
           <div class="gungimh">
-             <img src="../../../assets/images/paipai.jpg" alt />
+            <img src="../../../assets/images/paipai.jpg" alt />
           </div>
         </li>
         <li>
           <p class="huangtext">新品首发</p>
           <p class="guangtext2">京东小魔方</p>
-            <div class="gungimh">
-             <img src="../../../assets/images/xpshoufa.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/xpshoufa.jpg" alt />
           </div>
         </li>
         <li>
-         <p class="huangtext">发现好货</p>
+          <p class="huangtext">发现好货</p>
           <p class="guangtext2">发现品质生活</p>
-             <div class="gungimh">
-             <img src="../../../assets/images/faxianhaohuo.jpg" alt />
+          <div class="gungimh">
+            <img src="../../../assets/images/faxianhaohuo.jpg" alt />
           </div>
         </li>
       </ul>
@@ -87,7 +87,7 @@ export default {
   width: 95%;
   height: 100%;
   margin: 0 auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin-left: 11px;
   background: white;
 }
@@ -98,7 +98,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-left: -31px;
+  margin-left: 0px;
   margin-top: -12px;
 }
 
@@ -112,7 +112,7 @@ export default {
 }
 
 .gungimh {
-   width: 74.3px;
+  width: 74.3px;
   height: 74.3px;
 }
 
@@ -122,18 +122,23 @@ export default {
 }
 
 .huangtext {
-    background: -webkit-linear-gradient(left,#FF2A2A,#F139D2);
-    background: linear-gradient(90deg, #FF2A2A,#F139D2);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 19.8px;
-    font-weight: bold;
+  width: 100%;
+  background: -webkit-linear-gradient(left, #ff2a2a, #f139d2);
+  background: linear-gradient(90deg, #ff2a2a, #f139d2);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 13.65px;
+  font-weight: bold;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    overflow: hidden;
 }
 
 .guangtext2 {
-  font-size: 14.8px;
+  font-size:10.24px;
   color: #222222;
-  margin-top: -20px;
-  margin-left: -3px;
+  margin-top: -15px;
+  margin-left: -10px;
 }
 </style>

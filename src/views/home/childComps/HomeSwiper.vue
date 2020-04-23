@@ -11,7 +11,7 @@
     </div>
     <div class="triangle-left"></div>
     <div class="triangle-right"></div>
-     <swiper class="home-swiper" ref="mySwiper" :options="swiperOptions ">
+     <swiper class="home-swiper ouysyyu" ref="mySwiper" :options="swiperOptions ">
       <swiper-slide>
         <img src="../../../assets/images/lunbo1.jpg" alt />
       </swiper-slide>
@@ -87,7 +87,7 @@ export default {
 #home-swiper {
   position: relative;
   background-color: #c82519;
-  height: 187px;
+  height: 145px;
   margin-top: 0;
 }
 
@@ -194,7 +194,7 @@ export default {
 }
 
 .home-swiper {
-  width: 370.11px;
+  width: 95%;
   height: 148px;
   border-radius: 5px;
 }

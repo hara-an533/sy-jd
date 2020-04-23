@@ -21,8 +21,10 @@
         </ul>
       </div>
     </div>
-    <div>
-      <p @click="backtop">回到顶部</p>
+    <div class="backtop" v-show="shoepop">
+      <p @click="backtop">
+        <i class="iconfont icon-fanhuidingbu1"></i>
+      </p>
       <p></p>
     </div>
   </div>
@@ -33,6 +35,7 @@ export default {
   name: "recommend",
   data() {
     return {
+      shoepop:false,
       commoditylist: [
         {
           id: "drink-01",
@@ -139,6 +142,15 @@ export default {
   methods: {
     // 显示回到顶部按钮
     showbtn() {
+      //  console.log( document.documentElement.scrollTop);
+
+      // 自己加的,控制回到顶部按纽出现和消失
+       if(document.documentElement.scrollTop>400){
+         this.shoepop = true;
+        // console.log(this.shoepop)
+       } else {
+         this.shoepop = false;
+       }
       let that = this;
       let scrollTop =
         window.pageYOffset ||
@@ -163,7 +175,10 @@ export default {
         this.isTop = true;
         if (osTop === 0) {
           clearInterval(timer);
+           console.log(osTop)
         }
+         console.log(osTop)
+         console.log(ispeed)
       }, 30);
     }
   }
@@ -172,12 +187,12 @@ export default {
 
 <style scoped>
 .recomment {
-  width: 95%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   /* border: 1px solid red; */
   background: white;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .foryou {
@@ -196,11 +211,13 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-left: -18px;
+  margin-left: 18px;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .commodity {
-  width: 48%;
+  width: 40%;
   height: 100%;
   margin: 0 auto;
   margin-left: 8px;
@@ -210,11 +227,14 @@ export default {
   list-style: none;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .commodityli {
   width: 78%;
-  height: 312.97px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,8 +242,8 @@ export default {
 }
 
 .commodityli-img {
-  width: 218px;
-  height: 218px;
+  width: 155px;
+  height: 155px;
 }
 
 .commodityli-img img {
@@ -232,7 +252,7 @@ export default {
 }
 
 .textsed {
-  width: 200px;
+  width: 153px;
 
   word-break: break-all;
 
@@ -246,6 +266,7 @@ export default {
 
   overflow: hidden; /** 隐藏超出的内容 **/
   color: #232326;
+  font-size: 13px;
 }
 
 .buttton-text {
@@ -267,5 +288,19 @@ export default {
   margin-right: 5px;
   padding: 2px;
   margin-left: 10px;
+}
+
+.backtop {
+  position: fixed;
+  bottom: 90px;
+  left:270px;
+  /* background: white; */
+  z-index: 999;
+  width: 38px;
+  height: 38px;
+}
+
+.icon-fanhuidingbu1 {
+  font-size: 38px;
 }
 </style>

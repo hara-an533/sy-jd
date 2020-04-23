@@ -10,6 +10,7 @@
     <stroll></stroll>
     <expressNews></expressNews>
     <recommend></recommend>
+    <bottom></bottom>
     <backtotop></backtotop>
   </div>
 </template>
@@ -21,6 +22,8 @@ import expressNews from "./childComps/expressNews.vue";
 // import countdown from "./childComps/SecKill.vue";
 
 import recommend from "./childComps/Recommend.vue"
+
+import bottom from "./childComps/bottom.vue"
 
 import backtotop from "./childComps/BackToTop.vue"
 
@@ -52,7 +55,8 @@ export default {
     stroll: Stroll,
     HomeSwiperTwo:HomeSwiperTwo,
     "recommend":recommend,
-    "backtotop":backtotop
+    "backtotop":backtotop,
+    "bottom":bottom
   }
 };
 </script>
