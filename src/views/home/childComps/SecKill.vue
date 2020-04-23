@@ -91,7 +91,7 @@ export default {
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: 8%;
+  margin-left: 0%;
 }
 
 button[disabled] {
@@ -99,10 +99,8 @@ button[disabled] {
 }
 
 .seckill-img {
-  float: left;
-  display: inline-block;
   width: 4.9rem;
-  height: 1.35rem;
+  height: 0.9rem;
   margin-top: 0.4rem;
   margin-right: 0.3rem;
   background: url(../../../assets/images/下载.png);
@@ -110,6 +108,8 @@ button[disabled] {
 }
 
 .seckilltext {
+  display: flex;
+  width: 50px;
   color: #232326;
   font-size: 12px;
   margin-top: 16px;
@@ -143,7 +143,7 @@ button[disabled] {
     height: 35px;
     color: #f23030;
     font-size: 10px;
-    margin-left: 128px;
+    margin-left: 120px;
     margin-top: 32px;
 }
 

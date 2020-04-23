@@ -4,7 +4,7 @@ import Home from '../views/home/Home'
 import Category from '../views/category/Category.vue'
 import ShopCart from "../views/shopcart/ShopCart.vue"
 import Surprise from '../views/surprise/Surprise.vue'
-import Profile from "../views/profile/Profile.vue"
+import profile from "../views/personal/profile.vue"
 
 Vue.use(VueRouter)
 
@@ -35,8 +35,8 @@ Vue.use(VueRouter)
   },
   {
     path:'/profile',
-    name:'Profile',
-    component:Profile
+    name:'profile',
+    component:profile
   }
 ]
 

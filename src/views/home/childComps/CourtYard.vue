@@ -36,28 +36,28 @@
             <p class="button-text">下厨做饭</p>
             <p class="button-text2">创房能手</p>
             <div class="buttonimg">
-              <img src="../../../assets/images/sheyin.jpg" alt />
+              <img src="../../../assets/images/xiachu1.jpg" alt />
             </div>
           </li>
           <li>
-            <p class="button-text">下厨做饭</p>
+            <p class="button-text">唱片潮流</p>
             <p class="button-text2">创房能手</p>
             <div class="buttonimg">
-              <img src="../../../assets/images/sheyin.jpg" alt />
+              <img src="../../../assets/images/changpian2.jpg" alt />
             </div>
           </li>
           <li>
-            <p class="button-text">下厨做饭</p>
+            <p class="button-text">追剧零食</p>
             <p class="button-text2">创房能手</p>
             <div class="buttonimg">
-              <img src="../../../assets/images/sheyin.jpg" alt />
+              <img src="../../../assets/images/lingshi.jpg" alt />
             </div>
           </li>
           <li>
-            <p class="button-text">下厨做饭</p>
+            <p class="button-text">租房贵族</p>
             <p class="button-text2">创房能手</p>
             <div class="buttonimg">
-              <img src="../../../assets/images/sheyin.jpg" alt />
+              <img src="../../../assets/images/zufang.jpg" alt />
             </div>
           </li>
         </ul>
@@ -134,7 +134,7 @@ export default {
 }
 
 .left-text {
-  font-size: 19.8px;
+  font-size: 13.65px;
   background: linear-gradient(90deg, #45caff, #1471fb);
   color: transparent;
   -webkit-background-clip: text;
@@ -144,24 +144,24 @@ export default {
 }
 
 .left-text2 {
-  font-size: 16.8px;
+  font-size: 10.24px;
   color: #777661;
   margin-top: -14px;
   margin-left: 10px;
 }
 
 .master-main-top-left-img {
-  width: 219px;
+  width: 100%;
   height: 80px;
   display: flex;
   margin-top: -5px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
 }
 
 .master-main-top-left-img img {
-  width: 74px;
-  height: 74px;
-  margin-right: 33px;
+  width: 71px;
+  height: 71px;
+  /* margin-right: 33px; */
 }
 
 .master-main-button {
@@ -178,7 +178,9 @@ export default {
   text-align: center;
   align-items: center;
   list-style: none;
-  margin-left: -16px;
+  margin-left: 20px;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .button-main li {
@@ -194,28 +196,35 @@ export default {
 }
 
 .buttonimg {
-  width: 74.3px;
-  height: 74.3px;
+  width: 100%;
+  height: 100%;
   margin-left: 1px;
 }
 
 .buttonimg img {
-  width: 74.3px;
-  height: 74.3px;
+  width: 100%;
+  height: 100%;
 }
 
 .button-text {
-  font-size: 19.8px;
+  width: 100%;
+  font-size: 13.65px;
+  line-height: 1.125rem;
   color: #000000;
   font-weight: bolder;
   margin-top: -2px;
   margin-left: -6px;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-weight: 700;
+  max-width: 100%;
 }
 
 .button-text2 {
-  font-size: 14.8px;
+  font-size: 10.8px;
   color: #666771;
-  margin-top: -21px;
+  margin-top: -13px;
   margin-left: -24px;
 }
 </style>

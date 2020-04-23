@@ -99,7 +99,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin-left: -39px;
+  margin-left: 0px;
 }
 .slides-li {
   width: 20%;

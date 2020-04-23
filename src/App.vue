@@ -58,9 +58,10 @@ ul {
 .main-tab-bar {
   position: fixed;
   left: 0;
-  bottom: -3px;
+  bottom: 0px;
   width: 100%;
-  height: 6%;
+  height: 10%;
   text-align: center;
+  z-index: 999;
 }
 </style>

@@ -111,26 +111,26 @@ export default {
   display: block;
   position: relative;
   width: 150%;
-  height: 40px;
+  height: 45px;
   overflow: hidden;
   margin-top: -9px;
 }
 .marquee_list {
   display: block;
   position: absolute;
-  top: 0;
+  top: -15px;
   left: 0;
   list-style: none;
 }
 .marquee_top {
   transition: all 0.5s;
-  margin-top: -30px;
+  margin-top: -35px;
 }
 .marquee_list li {
-  height: 30px;
-  line-height: 13px;
+  height: 31px;
+  line-height: 18px;
   font-size: 14px;
-  padding-left: 20px;
+  padding-left: 40px;
   overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap; 
@@ -153,7 +153,7 @@ width: 150px;
   margin-right: .25rem;
   vertical-align: middle;
   font-style: normal;
-  margin-left: 420px;
+  margin-left: 369px;
   margin-top: -55px;
 }
 .expressNews-right {

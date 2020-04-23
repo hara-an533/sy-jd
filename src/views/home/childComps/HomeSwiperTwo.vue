@@ -152,7 +152,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
-  margin-left: -41px;
+  margin-left: px;
   flex-grow: 1;
   flex-shrink: 0;
     /* background: rgb(241, 241, 241); */
