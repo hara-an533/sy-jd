@@ -43,8 +43,8 @@ const routes = [
         component: ShopCart
       },
       {
-        path: '/profile',
-        name: 'Profile',
+        path: 'profile',
+        name: 'profile',
         component: Profile
       }
     ]
