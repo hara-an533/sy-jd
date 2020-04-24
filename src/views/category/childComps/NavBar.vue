@@ -1,6 +1,6 @@
 <template>
   <div class="nav-bar">
-    <div slot="left" class="left"></div>
+    <div slot="left" class="left" @click="goBack"></div>
     <input slot="center" class="center" placeholder="游戏本i7" />
     <i class="cat-icon"></i>
   </div>
@@ -10,7 +10,12 @@
 import NavBar from "../../../components/common/navbar/NavBar";
 
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods:{
+    goBack(){
+      this.$router.go(-1)
+    }
+  }
 };
 </script>
 

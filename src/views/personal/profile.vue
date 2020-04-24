@@ -9,7 +9,7 @@
 import personalTop from "./personalChildrens/personalTop.vue"
 import personfunctions from "./personalChildrens/personfunctions.vue"
 export default {
-    name:'profile',
+    name:'Profile',
     components:{
       "personalTop":personalTop,
       "personfunctions":personfunctions,
