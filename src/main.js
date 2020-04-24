@@ -49,7 +49,7 @@ new Vue({
         'category':  Category,
         'shop-cart': ShopCart,
         'surprise': Surprise,
-        'profile':Profile,
+        'Profile':Profile,
         // "countdown":countdown
     },
     render: h => h(App),
