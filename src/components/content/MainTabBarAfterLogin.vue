@@ -7,7 +7,7 @@
     <p class="jinxi">京喜</p>
     </a>
     <router-link class="cart" tag="div" to="/main/shopcart"></router-link>
-    <router-link class="login" tag="div" to="/main/profile"></router-link>
+    <router-link class="profile" tag="div" to="/main/profile"></router-link>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
   background-size: 60px 46px;
 }
 
-.main-tab-bar .login {
+.main-tab-bar .profile {
   background: url(../../assets/images/img.png) no-repeat center;
   background-size: 60px 46px;
 }

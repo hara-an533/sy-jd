@@ -5,6 +5,7 @@ import Category from '../views/category/Category.vue'
 import ShopCart from "../views/shopcart/ShopCart.vue"
 import Surprise from '../views/surprise/Surprise.vue'
 import Profile from "../views/personal/Profile.vue"
+// import Login from '../views/personal/Login'
 import GoodsDetail from '../views/category/GoodsDetail'
 import FrontView from '../views/FrontView'
 import {
@@ -47,6 +48,11 @@ const routes = [
         name: 'profile',
         component: Profile
       }
+      // {
+      //   path:'profile',
+      //   name:'Login',
+      //   component:Login
+      // }
     ]
   },
   {

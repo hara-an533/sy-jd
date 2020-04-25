@@ -11,6 +11,7 @@ import Home from './views/home/Home.vue'
 import ShopCart from "./views/shopcart/ShopCart.vue"
 import Surprise from './views/surprise/Surprise.vue'
 import Profile from "./views/personal/Profile.vue"
+import Login from "./views/personal/Login.vue"
 // import countdown from "./views/home/childComps/SecKill.vue";
 // 饿了么
 import ElementUI from 'element-ui';
@@ -50,6 +51,7 @@ new Vue({
         'shop-cart': ShopCart,
         'surprise': Surprise,
         'Profile':Profile,
+        'login':Login
         // "countdown":countdown
     },
     render: h => h(App),
