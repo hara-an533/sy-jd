@@ -1,10 +1,16 @@
 <template>
   <div id="home-swiper">
     <div class="nav-bar">
+      <router-link to="/main/category">
       <div class="search-btn"></div>
-      <div class="search">
+      </router-link>
+      <router-view></router-view>
+      <router-link to="/main/home/SearchFunction">
+         <div class="search">
         <div class="jd-icon"></div>
       </div>
+      <router-view></router-view>
+      </router-link>
       <div class="search-login">
         <a href="#">登录</a>
       </div>

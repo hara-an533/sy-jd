@@ -34,6 +34,7 @@ import './assets/iconfont/iconfont13.css'
 import './assets/iconfont/iconfont14.css'
 import './assets/iconfont/iconfont15.css'
 import './assets/iconfont/iconfont16.css'
+import './assets/iconfont/iconfont17.css'
 
 import 'swiper/css/swiper.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
