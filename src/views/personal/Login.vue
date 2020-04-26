@@ -10,11 +10,11 @@
           <span>+86</span>
           <i></i>
         </label>
-        <input type="text" placeholder="请输入手机号" ref="num"/>
+        <input type="text" placeholder="请输入手机号" ref="num" />
       </p>
       <p class="security-code">
-        <input type="text" placeholder="请输入收到的验证码" ref="code"/>
-        <span>获取验证码</span>
+        <input type="text" placeholder="请输入收到的验证码" ref="code" />
+        <span @click="getCode" ref="getCode">获取验证码</span>
       </p>
     </div>
     <div class="inp_btn">
@@ -44,16 +44,34 @@
 <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      seconds: 60
+    };
+  },
   components: {},
-  methods:{
-    goBack(){
+  methods: {
+    goBack() {
       this.$router.go(-1);
     },
-    login(){
-      if(this.$refs.num.value==this.$store.state.telephoneNumber&&this.$refs.code.value==this.$store.state.code){
-        this.$router.replace({path:'/main/profile'});
-        this.$store.commit('changeStatus')
+    login() {
+      if (
+        this.$refs.num.value == this.$store.state.telephoneNumber &&
+        this.$refs.code.value == this.$store.state.code
+      ) {
+        this.$router.replace({ path: "/main/profile" });
+        this.$store.commit("changeStatus");
       }
+    },
+    getCode() {
+      setInterval(() => {
+        if (this.seconds <= 0) {
+          this.$refs.getCode.innerText = "获取验证码";
+          return;
+        }
+        this.seconds -= 1;
+        this.$refs.getCode.innerText = "重新获取(" + this.seconds + "s)";
+      }, 1000);
     }
   }
 };

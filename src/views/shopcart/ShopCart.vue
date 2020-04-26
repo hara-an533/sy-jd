@@ -5,23 +5,34 @@
       <div class="center" slot="center">购物车</div>
       <div class="right" slot="right"></div>
     </div>
-    <empty-cart></empty-cart>
+    <jd-cart></jd-cart>
+    <!-- <component :is="cartName"></component> -->
   </div>
 </template>
 
 <script>
 import NavBar from "../../components/common/navbar/NavBar";
 import EmptyCart from "./childComps/EmptyCart";
+import JdCart from "./childComps/JdCart";
 
 export default {
   name: "ShopCart",
+  data() {
+    return { cartName: "jd-cart" };
+  },
   components: {
     "nav-bar": NavBar,
-    "empty-cart": EmptyCart
+    "empty-cart": EmptyCart,
+    "jd-cart": JdCart
   },
-  methods:{
-    goBack(){
-      this.$router.go(-1)
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  },
+  mounted() {
+    if (this.$store.state.status == "login") {
+      this.cartName="jd-cart"
     }
   }
 };
@@ -57,5 +68,4 @@ export default {
   background: url(../../assets/images/dian.png) no-repeat center;
   background-size: 20px;
 }
-
 </style>>

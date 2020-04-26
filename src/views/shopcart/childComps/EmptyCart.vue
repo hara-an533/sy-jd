@@ -2,7 +2,7 @@
   <div class="empty-cart">
     <div class="login">
       登录后可同步购物车中的商品
-      <div class="shopcart-btn-red">登录</div>
+      <div class="shopcart-btn-red" @click="login">登录</div>
     </div>
     <div class="cart-empty-wrap">
         <div class="empty-icon"></div>
@@ -15,7 +15,12 @@
 <script>
 
 export default {
-  name: "EmptyCart"
+  name: "EmptyCart",
+  methods:{
+    login(){
+      this.$router.push({path:"/login"})
+    }
+  }
 };
 </script>
 
