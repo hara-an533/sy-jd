@@ -5,8 +5,9 @@
         <img src="../../../assets/images/tuijian.png" alt />
       </div>
     </div>
+    <router-link to="/main/home/ProductDetails">
     <div class="obig">
-      <div class="commodity" :key="'infout'+index" v-for="(item,index) in commoditylist">
+        <div class="commodity" :key="'infout'+index" v-for="(item,index) in commoditylist">
         <ul class="commodity-ul">
           <li class="commodityli">
             <div class="commodityli-img">
@@ -21,6 +22,8 @@
         </ul>
       </div>
     </div>
+    </router-link>
+      <router-view></router-view>
     <div class="backtop" v-show="shoepop">
       <p @click="backtop">
         <i class="iconfont icon-fanhuidingbu1"></i>
