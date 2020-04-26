@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "MainTabBar",
+  name: "MainTabBarAfterLogin",
   data() {
     return {
       currentIndex: 0
@@ -59,7 +59,7 @@ export default {
 }
 
 .main-tab-bar .profile {
-  background: url(../../assets/images/img.png) no-repeat center;
+  background: url(../../assets/images/my-h.png) no-repeat center;
   background-size: 60px 46px;
 }
 
@@ -75,6 +75,11 @@ export default {
 
 .router-link-active.cart {
   background: url(../../assets/images/cart-r.png) no-repeat center;
+  background-size: 60px 46px;
+}
+
+.router-link-active.profile {
+    background: url(../../assets/images/my.png) no-repeat center;
   background-size: 60px 46px;
 }
 

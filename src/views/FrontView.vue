@@ -1,17 +1,24 @@
 <template>
   <div>
     <router-view />
-    <main-tab-bar class="main-tab-bar"></main-tab-bar>
+    <!-- <main-tab-bar class="main-tab-bar"></main-tab-bar> -->
+    <component :is="$store.state.tabBarName" class="main-tab-bar"></component>
   </div>
 </template>
 
 <script>
 import MainTabBar from "../components/content/MainTabBar";
-
+import MainTabBarAfterLogin from '../components/content/MainTabBarAfterLogin'
 
 export default {
   components: {
-    "main-tab-bar": MainTabBar
+    "main-tab-bar": MainTabBar,
+    "tab-bar-login-after":MainTabBarAfterLogin
+  },
+  data() {
+    return {
+      
+    };
   }
 };
 </script>

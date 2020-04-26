@@ -7,7 +7,7 @@
     <p class="jinxi">京喜</p>
     </a>
     <router-link class="cart" tag="div" to="/main/shopcart"></router-link>
-    <router-link class="login" tag="div" to="/main/profile"></router-link>
+    <router-link class="login" tag="div" to="/login"></router-link>
   </div>
 </template>
 

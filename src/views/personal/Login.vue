@@ -10,15 +10,15 @@
           <span>+86</span>
           <i></i>
         </label>
-        <input type="text" placeholder="请输入手机号" />
+        <input type="text" placeholder="请输入手机号" ref="num"/>
       </p>
       <p class="security-code">
-        <input type="text" placeholder="请输入收到的验证码" />
+        <input type="text" placeholder="请输入收到的验证码" ref="code"/>
         <span>获取验证码</span>
       </p>
     </div>
     <div class="inp_btn">
-      <a href="javascript:;" class="login">登录</a>
+      <a class="login" @click.prevent="login">登录</a>
       <a href="javascript:;" class="register">注册</a>
     </div>
     <div class="quick_btn">
@@ -48,6 +48,12 @@ export default {
   methods:{
     goBack(){
       this.$router.go(-1);
+    },
+    login(){
+      if(this.$refs.num.value==this.$store.state.telephoneNumber&&this.$refs.code.value==this.$store.state.code){
+        this.$router.replace({path:'/main/profile'});
+        this.$store.commit('changeStatus')
+      }
     }
   }
 };

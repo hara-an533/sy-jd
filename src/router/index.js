@@ -5,7 +5,7 @@ import Category from '../views/category/Category.vue'
 import ShopCart from "../views/shopcart/ShopCart.vue"
 import Surprise from '../views/surprise/Surprise.vue'
 import Profile from "../views/personal/Profile.vue"
-// import Login from '../views/personal/Login'
+import Login from '../views/personal/Login'
 import GoodsDetail from '../views/category/GoodsDetail'
 import FrontView from '../views/FrontView'
 import SearchFunction from "../views/home/childComps/search/SearchFunction.vue"
@@ -19,6 +19,11 @@ const routes = [
   {
     path:'/',
     redirect:'/main'
+  },
+  {
+    path:'/login',
+    name:"Login",
+    component:Login
   },
   {
     path: '/main',
@@ -45,16 +50,11 @@ const routes = [
         component: ShopCart
       },
       {
-        path: 'profile',
-        name: 'profile',
-        component: Profile
+        path:'profile',
+        name:'Profile',
+        component:Profile
       }
-      // {
-      //   path:'profile',
-      //   name:'Login',
-      //   component:Login
-      // }
-    ]
+    ] 
   },
   {
     path: "/main/category/:produts",

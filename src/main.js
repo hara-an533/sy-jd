@@ -3,7 +3,7 @@ import VueRouter from "vue-router"
 import App from './App.vue'
 
 import router from "./router/index.js"
-// import store from "./store/index.js"
+import store from "./store/index.js"
 
 
 import Category from './views/category/Category.vue'
@@ -45,7 +45,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 new Vue({
     router: router,
-    // store: store,
+    store: store,
     components: {
         'home': Home,
         'category':  Category,
