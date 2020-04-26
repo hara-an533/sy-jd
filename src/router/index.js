@@ -9,6 +9,7 @@ import Profile from "../views/personal/Profile.vue"
 import GoodsDetail from '../views/category/GoodsDetail'
 import FrontView from '../views/FrontView'
 import SearchFunction from "../views/home/childComps/search/SearchFunction.vue"
+import ProductDetails from "../views/home/childComps/ProductDetails/ProductDetails.vue"
 import {
   Main
 } from 'element-ui'
@@ -66,7 +67,11 @@ const routes = [
     name:'SearchFunction',
     component: SearchFunction
   },
-
+  {
+    path: "/main/home/ProductDetails",
+    name:'ProductDetails',
+    component: ProductDetails
+  },
 
 
 ]
