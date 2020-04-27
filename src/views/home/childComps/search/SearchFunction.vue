@@ -25,7 +25,8 @@
         </p>
       </div>
       <div id="big">
-        <div id="txtitem" :key="index" v-for="(item,index) in newList">
+        <router-link to="/main/home/ProductDetails">
+         <div id="txtitem" :key="index" v-for="(item,index) in newList">
           <div class="txtimg">
             <img :src="item.img" alt />
           </div>
@@ -35,7 +36,9 @@
             <p class="txtright-ping">{{item.ping}}</p>
             <p class="txtright-infoed">{{item.infoed}}</p>
           </div>
-        </div>
+          </div>
+          </router-link>
+        <router-view></router-view>
       </div>
     </div>
   </div>
