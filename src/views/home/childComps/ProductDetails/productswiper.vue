@@ -77,7 +77,7 @@ export default {
 
 .ouysyyu {
     width: 100%;
-    height: 320px;
+    height: 375px;
 }
 
 .ouysyyu img {

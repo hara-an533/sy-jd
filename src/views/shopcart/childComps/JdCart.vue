@@ -33,6 +33,20 @@
         </div>
       </div>
     </div>
+    <div class="flexBar_selected">
+      <div>
+        <i></i>
+        全选
+      </div>
+      <div>
+        总计:￥
+        <span></span>
+      </div>
+      <div>
+        去结算(
+        <span></span>件）
+      </div>
+    </div>
   </div>
 </template>
 
@@ -40,6 +54,7 @@
 import mac01 from "../../../assets/upload/mac01.webp";
 import mac02 from "../../../assets/upload/mac02.webp";
 import img from "../../../assets/images/internation.png";
+import lbn from "../../../assets/images/lbn.webp";
 
 export default {
   name: "JdCart",
@@ -48,32 +63,23 @@ export default {
       products: [
         {
           id: 1,
-          title: "卓悦环球海外专营店",
-          url: mac01,
+          title: "罗宾尼手表官方旗舰店",
+          url: lbn,
           img: img,
-          desc: "魅可mac女士口红 sugar dada 血橙色",
+          desc:
+            "罗宾尼(lobinni)品牌正品手表男士全自动机械表镂空超薄商务休闲时尚瑞士风格腕表皮带防水名表男款",
           detail: "sugar dada 血橙色",
           price: "168.00"
-        },
-        {
-          id: 2,
-          title: "宏愿化妆品外专营店",
-          url: mac02,
-          desc:
-            "【专柜正品】mac口红魅可CHILI小辣椒口红mac316泫雅色秀智款唇膏 CHILI 602#小辣椒铁锈红(秀智款)",
-          detail: "CHILI 602#小辣椒铁锈红(秀智款)",
-          price: "138.00"
         }
       ]
     };
   },
-  methods:{
-select(e){
-    console.log('啦啦啦');
-e.target.background="-60px -48px"
+  methods: {
+    select(e) {
+      console.log("啦啦啦");
+      e.target.background = "-60px -48px";
+    }
   }
-  }
-  
 };
 </script>
 
@@ -297,5 +303,17 @@ e.target.background="-60px -48px"
 
 .m-action span:nth-child(2) {
   margin-right: 20px;
+}
+
+.flexBar_selected {
+  position: fixed;
+  left: 0;
+  bottom: 48px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: tomato;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

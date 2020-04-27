@@ -1,5 +1,6 @@
 <template>
   <div class="maninsaajk">
+    <div class="cover" v-show="cover" @click="touch"></div>
     <div class="fxgou">
       <div class="fxgoulft">
         <img src="../../../../assets/images/fxgou.jpg" alt />
@@ -73,11 +74,44 @@
       <p class="dbta-txtc" @click="closedc">知道了</p>
     </div>
     <div class="shmain">
-      <p class="shmain-xuan">
+      <p class="shmain-xuan" @click="open">
         <span class="shmain-xuan-txta">已选</span>
-        <span class="shmain-xuan-txtb">【热卖爆款-皮带款】玫壳-白面【</span>
-        <span class="shmain-xuan-txtc" @click="openboxd">...</span>
+        <span class="shmain-xuan-txtb" ref="title1">【钢带款】金壳-白面 【5014时光轮】</span>
+        <span class="shmain-xuan-txtc">...</span>
       </p>
+      <div class="options-box" v-show="show">
+        <div class="header">
+          <div class="img">
+            <img src="../../../../assets/upload/watch00.webp" alt width="100px" height="100px" />
+          </div>
+          <div class="chara">
+            <i @touchstart="touch"></i>
+            <div class="text">
+              <div class="price" ref="price">
+                ￥<span>1098.00</span></div>
+              <div class="selected">
+                已选
+                <span ref="title">【钢带款】金壳-白面 【5014时光轮】</span>
+                ,
+                <span>1</span>
+                个
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="options">
+          <p>颜色</p>
+          <ul @touchstart="select">
+            <li>【钢带款】金壳-白面 【5014时光轮】</li>
+            <li>【钢带款】枚壳-白面 【5014时光轮】</li>
+            <li>【钢带款】黑壳-金针 【5015时光轮】</li>
+            <li>【爆款·皮带款】黑壳-金针 【5015时光轮】</li>
+            <li>【钢带款】黑壳-银针 【5015时光轮】</li>
+            <li>【皮带款】黑壳-银针 【5015时光轮】</li>
+            <li>【钢带款】金壳-白面 【5014时光轮】</li>
+          </ul>
+        </div>
+      </div>
       <div class="shmain-song">
         <p class="shmain-song-txta">送至</p>
         <p class="shmain-song-txtb">
@@ -102,19 +136,7 @@
         <p class="shmain-tui-bottom">货到付款</p>
       </div>
     </div>
-    <div class="xunxxkb" v-show="opedd">
-      <p class="xunxxkb-txta">
-        <span class="xunxxkb-txta-one">颜色</span>
-        <span class="xunxxkb-txta-two" @click="closedd">x</span>
-      </p>
-      <div class="xunxxkb-img">
-        <img src="../../../../assets/images/baimiana.jpg" alt />
-      </div>
-      <div class="xunxxkb-bottom">
-        <p class="xunxxkb-bottom-txta">加入购物车</p>
-        <p class="xunxxkb-bottom-txtb">立即购买</p>
-      </div>
-    </div>
+    <div class="xunxxkb" v-show="show"></div>
     <div class="songzhi" v-show="opede">
       <p class="songzhi-top">
         <span class="songzhi-top-txta">选择区域</span>
@@ -167,7 +189,7 @@
         </div>
         <p class="tabgudi-txta">购物车</p>
       </div>
-      <div class="tabgudib">加入购物车</div>
+      <div class="tabgudib" @click="shopping">加入购物车</div>
       <div class="tabgudib">立即购买</div>
     </div>
   </div>
@@ -178,15 +200,49 @@ export default {
   name: "productxuanxiang",
   data() {
     return {
+      optionLists: [
+        { id: 1, desc: "【钢带款】金壳-白面 【5014时光轮】", price: "1098.00" },
+        { id: 2, desc: "【钢带款】枚壳-白面 【5014时光轮】", price: "1098.00" },
+        { id: 3, desc: "【钢带款】黑壳-金针 【5015时光轮】", price: "1398.00" },
+        {
+          id: 4,
+          desc: "【爆款·皮带款】黑壳-金针 【5015时光轮】",
+          price: "1698.00"
+        },
+        { id: 5, desc: "【钢带款】黑壳-银针 【5015时光轮】", price: "1398.00" },
+        { id: 6, desc: "【皮带款】黑壳-银针 【5015时光轮】", price: "1698.00" },
+        { id: 7, desc: "【钢带款】金壳-白面 【5014时光轮】", price: "1098.00" },
+      ],
       oped: false,
       opedb: false,
       opedc: false,
-      opedd: false,
+      show: false,
       opede: false,
-      opedf: false
+      opedf: false,
+      cover: false
     };
   },
   methods: {
+    select() {
+      console.log(event.target.innerText);
+      let index=this.optionLists.findIndex(item=>{
+        return item.desc==event.target.innerText;
+      });
+       this.$refs.title.innerText=this.optionLists[index].desc;
+     this.$refs.title1.innerText=this.optionLists[index].desc;
+     this.$refs.price.innerText=this.optionLists[index].price
+    },
+    shopping(){
+      if(this.show==false){
+        this.show=true;
+        this.cover=true;
+      }else if(this.show==true){
+        this.$store.commit("shopCartPush",{
+          title:this.$refs.title.innerText,
+          price:this.$refs.price.innerText
+        })
+      }
+    },
     openbox() {
       this.oped = true;
     },
@@ -205,12 +261,6 @@ export default {
     closedc() {
       this.opedc = false;
     },
-    openboxd() {
-      this.opedd = true;
-    },
-    closedd() {
-      this.opedd = false;
-    },
     openboxe() {
       this.opede = true;
     },
@@ -222,7 +272,15 @@ export default {
     },
     closedf() {
       this.opedf = false;
-    }
+    },
+    open() {
+      this.show = true;
+      this.cover = true;
+    },
+    touch() {
+      this.show = false;
+      this.cover = false;
+    },
   }
 };
 </script>
@@ -835,7 +893,8 @@ export default {
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 5px;position: fixed;
+  padding: 5px;
+  position: fixed;
   bottom: 0px;
   z-index: 999;
 }
@@ -881,5 +940,80 @@ export default {
   box-sizing: border-box;
   padding: 0 10px;
   cursor: pointer;
+}
+
+.options-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 555px;
+  z-index: 111;
+  background-color: #fff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.options-box .header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 110;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.options-box .chara i {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 20px;
+  height: 20px;
+  background: url(../../../../assets/images/del.png);
+  background-size: cover;
+}
+
+.chara .text {
+  padding-left: 18px;
+  font-size: 12px;
+  color: #333;
+}
+
+.options-box .chara .text .price {
+  margin-top: 20px;
+  font-size: 24px;
+  line-height: 40px;
+  color: #f2270c;
+}
+
+.options-box li {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 18px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+  margin: 0 0 12px 10px;
+  font-size: 11px;
+  color: #262626;
+}
+
+.options p {
+  font-size: 13px;
+  color: #262626;
+  margin: 0 18px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 40px;
 }
 </style>

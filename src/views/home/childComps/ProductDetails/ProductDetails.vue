@@ -32,6 +32,7 @@
         </p>
       </div>
       <productxuanxiang></productxuanxiang>
+      <pro-introduce></pro-introduce>
     </div>
   </div>
 </template>
@@ -39,11 +40,14 @@
 <script>
 import prozujian from "./productswiper.vue";
 import productxuanxiang from "./productxuanxiang.vue"
+import ProIntroduce from "./ProIntroduce"
+
 export default {
   name: "productswiper",
   components: {
     prozujian,
-    productxuanxiang
+    productxuanxiang,
+    "pro-introduce":ProIntroduce
   },
   methods: {
     badeee() {
@@ -78,8 +82,9 @@ export default {
   background: white;
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 18px;
   margin-top: 20px;
+  justify-content: space-between;
 }
 
 .jiagea {
@@ -105,7 +110,7 @@ export default {
   flex-direction: column;
   color: #333333;
   font-size: 9px;
-  margin-left: 5%;
+  margin-left: -7%;
 }
 
 .productmiao {
@@ -114,7 +119,12 @@ export default {
   display: flex;
   flex-direction: column;
   background: white;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
+  padding: 12px 18px;
+}
+
+.productmiao p {
+  line-height: 1;
 }
 
 .productmiaoa {
@@ -131,5 +141,6 @@ export default {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  padding: 0 20px 0 0;
 }
 </style>
