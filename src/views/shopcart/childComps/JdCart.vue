@@ -5,26 +5,30 @@
       <span class="address_btn">编辑商品</span>
     </div>
     <div class="section" v-for="item in products" :key="item.id">
-      <div class="div_header">
+      <div class="div_header" @touchstart="select">
         <div class="div_title">{{ item.title }}</div>
       </div>
       <div class="item">
+        <i class="icon_select"></i>
         <div class="img">
           <img :src="item.url" width="100px" height="100px" alt />
         </div>
         <div class="content">
           <div class="name">
-            <img :src="item.img" alt width="44px" height="14px" />
             <span>{{ item.desc }}</span>
           </div>
           <div class="sku-tag">{{ item.detail }}</div>
           <div class="price">
             <span>￥{{ item.price }}</span>
-            <div class="num_wrap"></div>
+            <div class="num_wrap">
+              <span class="minus"></span>
+              <input type="text" value="1" />
+              <span class="plus"></span>
+            </div>
           </div>
           <div class="m-action">
-            <span>移入关注</span>
             <span>删除</span>
+            <span>移入关注</span>
           </div>
         </div>
       </div>
@@ -62,7 +66,14 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+select(e){
+    console.log('啦啦啦');
+e.target.background="-60px -48px"
   }
+  }
+  
 };
 </script>
 
@@ -131,6 +142,7 @@ export default {
 .div_title {
   position: relative;
   padding-left: 25px;
+  pointer-events: none;
 }
 
 .div_title::before {
@@ -140,8 +152,9 @@ export default {
   height: 20px;
   left: 0;
   top: 12px;
-  background: url(../../../assets/images/sprite.png) no-repeat -40px -48px;
+  background: url(../../../assets/images/sprite.png) no-repeat 0px -28px;
   background-size: 116px auto;
+  pointer-events: auto;
 }
 
 .div_title::after {
@@ -161,7 +174,14 @@ export default {
   padding-left: 42px;
 }
 
-.item::before {
+.item .icon_select {
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  left: 0;
+}
+
+.item .icon_select::before {
   content: "";
   position: absolute;
   width: 20px;
@@ -173,7 +193,7 @@ export default {
 }
 
 .content {
-    margin: 0 10px 0;
+  margin: 0 10px 0;
   /* margin-left: 11px; */
   color: #333;
 }
@@ -200,9 +220,82 @@ export default {
 }
 
 .price {
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    color:#f2270c;;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #f2270c;
+}
+
+.name span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.num_wrap span {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+}
+
+.num_wrap input {
+  width: 30px;
+  height: 20px;
+  border: none;
+  text-align: center;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  background-color: #f7f7f7;
+}
+
+.num_wrap .minus::before,
+.num_wrap .plus::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -4px;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background: hsla(0, 0%, 80%, 0.3);
+  font-size: 16px;
+}
+
+.num_wrap .plus {
+  background-color: #f7f7f7;
+}
+
+.num_wrap .plus::before {
+  background-color: #333;
+}
+
+.num_wrap .plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -4px;
+  width: 2px;
+  height: 10px;
+  background: #333;
+  font-size: 16px;
+}
+
+.m-action {
+  height: 15px;
+  width: 100%;
+  margin: 10px 10px 0 0;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 10px;
+  color: #999;
+}
+
+.m-action span:nth-child(2) {
+  margin-right: 20px;
 }
 </style>

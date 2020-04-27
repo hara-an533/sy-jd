@@ -13,12 +13,12 @@
         <input type="text" placeholder="请输入手机号" ref="num" />
       </p>
       <p class="security-code">
-        <input type="text" placeholder="请输入收到的验证码" ref="code" />
+        <input type="text" placeholder="请输入收到的验证码" ref="code" @keydown="keyDown" @blur="blur"/>
         <span @click="getCode" ref="getCode">获取验证码</span>
       </p>
     </div>
     <div class="inp_btn">
-      <a class="login" @click.prevent="login">登录</a>
+      <a class="login" @click.prevent="login" ref="login">登录</a>
       <a href="javascript:;" class="register">注册</a>
     </div>
     <div class="quick_btn">
@@ -72,6 +72,12 @@ export default {
         this.seconds -= 1;
         this.$refs.getCode.innerText = "重新获取(" + this.seconds + "s)";
       }, 1000);
+    },
+    keyDown(){
+      this.$refs.login.style.background="linear-gradient(90deg,#f10000,#ff2000 73%,#ff4f18)";
+    },
+    blur(){
+      this.$refs.login.style.background="linear-gradient(90deg, #fab3b3, #ffbcb3 73%, #ffcaba)";
     }
   }
 };
