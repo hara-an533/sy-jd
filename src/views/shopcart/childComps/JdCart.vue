@@ -4,14 +4,14 @@
       <div class="address">无锡市滨湖区</div>
       <span class="address_btn">编辑商品</span>
     </div>
-    <div class="section" v-for="item in products" :key="item.id">
+    <div class="section" v-for="(item,index) in $store.state.shopCart" :key="index">
       <div class="div_header" @touchstart="select">
         <div class="div_title">{{ item.title }}</div>
       </div>
       <div class="item">
         <i class="icon_select"></i>
         <div class="img">
-          <img :src="item.url" width="100px" height="100px" alt />
+          <img :src="item.url" width="100px" height="100px" alt @click="skipTo"/>
         </div>
         <div class="content">
           <div class="name">
@@ -21,30 +21,32 @@
           <div class="price">
             <span>￥{{ item.price }}</span>
             <div class="num_wrap">
-              <span class="minus"></span>
-              <input type="text" value="1" />
-              <span class="plus"></span>
+              <span class="minus" @click="minus(index)"></span>
+              <input type="text" :value="item.num" ref="inp" />
+              <span class="plus" @click="add(index)"></span>
             </div>
           </div>
           <div class="m-action">
-            <span>删除</span>
+            <span @click="del(index)">删除</span>
             <span>移入关注</span>
           </div>
         </div>
       </div>
     </div>
     <div class="flexBar_selected">
-      <div>
-        <i></i>
+      <div class="all" @touchstart="allin">
+        <i ref="icon"></i>
         全选
       </div>
       <div>
-        总计:￥
-        <span></span>
+        总计:
+        <span>￥</span>
+        <span ref="price">0.00</span>
       </div>
-      <div>
+      <div class="buy" ref="shopping">
         去结算(
-        <span></span>件）
+        <span ref="num">0.00</span>
+        件）
       </div>
     </div>
   </div>
@@ -55,29 +57,62 @@ import mac01 from "../../../assets/upload/mac01.webp";
 import mac02 from "../../../assets/upload/mac02.webp";
 import img from "../../../assets/images/internation.png";
 import lbn from "../../../assets/images/lbn.webp";
+// import func from '../../../../vue-temp/vue-editor-bridge';
 
 export default {
   name: "JdCart",
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          title: "罗宾尼手表官方旗舰店",
-          url: lbn,
-          img: img,
-          desc:
-            "罗宾尼(lobinni)品牌正品手表男士全自动机械表镂空超薄商务休闲时尚瑞士风格腕表皮带防水名表男款",
-          detail: "sugar dada 血橙色",
-          price: "168.00"
-        }
-      ]
+      flag: true,
+      // total:0,
+      products: []
     };
   },
   methods: {
     select(e) {
-      console.log("啦啦啦");
-      e.target.background = "-60px -48px";
+      e.target.backgroundPosition = "-60px -48px";
+    },
+    allin() {
+      if (this.flag == false) {
+        this.$refs.icon.style.backgroundPosition = "0px -68px";
+        this.$store.commit("getTotal");
+        this.$refs.price.innerText = this.$store.state.total;
+        this.$store.commit("getNum");
+        this.$refs.num.innerText = this.$store.state.number;
+        this.flag = true;
+      } else if (this.flag == true) {
+        this.$refs.icon.style.backgroundPosition = "-60px -48px";
+        this.$refs.price.innerText = "0.00";
+        this.$refs.shopping.opacity = ".3";
+        this.$refs.num.innerText = "0";
+        this.flag = false;
+      }
+    },
+    minus(index) {
+      console.log(index);
+      this.$store.commit("minus", index);
+      this.$store.commit("getTotal");
+      this.$refs.price.innerText = this.$store.state.total;
+      this.$store.commit("getNum");
+      this.$refs.num.innerText = this.$store.state.number;
+    },
+    add(index) {
+      console.log(index);
+      this.$store.commit("plus", index);
+      this.$store.commit("getTotal");
+      this.$refs.price.innerText = this.$store.state.total;
+      this.$store.commit("getNum");
+      this.$refs.num.innerText = this.$store.state.number;
+    },
+    del(index) {
+      this.$store.commit("delItem", index);
+      this.$store.commit("getTotal");
+      this.$refs.price.innerText = this.$store.state.total;
+      this.$store.commit("getNum");
+      this.$refs.num.innerText = this.$store.state.number;
+    },
+    skipTo(){
+      this.$router.push({path:"/main/home/ProductDetails"})
     }
   }
 };
@@ -312,8 +347,52 @@ export default {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background-color: tomato;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
+  padding: 0 6px 0 15px;
+}
+
+.flexBar_selected .all {
+  position: relative;
+  width: 40px;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.all i {
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: url(../../../assets/images/sprite.png) no-repeat -60px -48px;
+  background-size: 116px auto;
+}
+
+.flexBar_selected div:nth-child(2) {
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+  padding-left: 65px;
+}
+
+.flexBar_selected div:nth-child(2) span {
+  color: #f2270c;
+}
+
+.buy {
+  width: 110px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 5px;
+  padding-left: 5px;
+  background-image: linear-gradient(135deg, #f2270c, #f2270c 70%, #f24d0c);
+  box-shadow: 0 6px 12px 0 rgba(255, 65, 66, 0.2);
 }
 </style>

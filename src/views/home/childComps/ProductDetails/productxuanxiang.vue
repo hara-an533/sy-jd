@@ -88,7 +88,9 @@
             <i @touchstart="touch"></i>
             <div class="text">
               <div class="price" ref="price">
-                ￥<span>1098.00</span></div>
+                ￥
+                <span>1098.00</span>
+              </div>
               <div class="selected">
                 已选
                 <span ref="title">【钢带款】金壳-白面 【5014时光轮】</span>
@@ -101,7 +103,7 @@
         </div>
         <div class="options">
           <p>颜色</p>
-          <ul @touchstart="select">
+          <ul @touchstart="select" ref="options">
             <li>【钢带款】金壳-白面 【5014时光轮】</li>
             <li>【钢带款】枚壳-白面 【5014时光轮】</li>
             <li>【钢带款】黑壳-金针 【5015时光轮】</li>
@@ -183,7 +185,7 @@
         </div>
         <p class="tabgudi-txta">店铺</p>
       </div>
-      <div class="tabgudia">
+      <div class="tabgudia" @click="cartIn">
         <div>
           <i class="iconfont icon-gouwuche3"></i>
         </div>
@@ -196,6 +198,9 @@
 </template>
 
 <script>
+import img from "../../../../assets/images/internation.png";
+import lbn from "../../../../assets/images/lbn.webp"
+
 export default {
   name: "productxuanxiang",
   data() {
@@ -211,7 +216,7 @@ export default {
         },
         { id: 5, desc: "【钢带款】黑壳-银针 【5015时光轮】", price: "1398.00" },
         { id: 6, desc: "【皮带款】黑壳-银针 【5015时光轮】", price: "1698.00" },
-        { id: 7, desc: "【钢带款】金壳-白面 【5014时光轮】", price: "1098.00" },
+        { id: 7, desc: "【钢带款】金壳-白面 【5014时光轮】", price: "1098.00" }
       ],
       oped: false,
       opedb: false,
@@ -223,25 +228,38 @@ export default {
     };
   },
   methods: {
-    select() {
+    select(e) {
       console.log(event.target.innerText);
-      let index=this.optionLists.findIndex(item=>{
-        return item.desc==event.target.innerText;
+      let index = this.optionLists.findIndex(item => {
+        return item.desc == event.target.innerText;
       });
-       this.$refs.title.innerText=this.optionLists[index].desc;
-     this.$refs.title1.innerText=this.optionLists[index].desc;
-     this.$refs.price.innerText=this.optionLists[index].price
-    },
-    shopping(){
-      if(this.show==false){
-        this.show=true;
-        this.cover=true;
-      }else if(this.show==true){
-        this.$store.commit("shopCartPush",{
-          title:this.$refs.title.innerText,
-          price:this.$refs.price.innerText
-        })
+      for(let i=0;i<this.$refs.options.children.length;i++){
+        this.$refs.options.children[i].style.border=""
       }
+      e.target.style.border="1px solid red";
+      this.$refs.title.innerText = this.optionLists[index].desc;
+      this.$refs.title1.innerText = this.optionLists[index].desc;
+      this.$refs.price.innerText = this.optionLists[index].price;
+    },
+    shopping() {
+      if (this.show == false) {
+        this.show = true;
+        this.cover = true;
+      } else if (this.show == true) {
+        this.$store.commit("shopCartPush", {
+          title: "罗宾尼手表官方旗舰店",
+          url: lbn,
+          img: img,
+          num:1,
+          desc:
+            "罗宾尼(lobinni)品牌正品手表男士全自动机械表镂空超薄商务休闲时尚瑞士风格腕表皮带防水名表男款",
+          detail: this.$refs.title.innerText,
+          price: this.$refs.price.innerText
+        });
+      }
+    },
+    cartIn(){
+      this.$router.push({path:"/main/shopcart"})
     },
     openbox() {
       this.oped = true;
@@ -280,7 +298,7 @@ export default {
     touch() {
       this.show = false;
       this.cover = false;
-    },
+    }
   }
 };
 </script>

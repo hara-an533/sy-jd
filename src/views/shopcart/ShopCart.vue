@@ -5,8 +5,8 @@
       <div class="center" slot="center">购物车</div>
       <div class="right" slot="right"></div>
     </div>
-    <jd-cart></jd-cart>
-    <!-- <component :is="cartName"></component> -->
+    <!-- <jd-cart></jd-cart> -->
+    <component :is="cartName"></component>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import JdCart from "./childComps/JdCart";
 export default {
   name: "ShopCart",
   data() {
-    return { cartName: "jd-cart" };
+    return { cartName: "empty-cart" };
   },
   components: {
     "nav-bar": NavBar,

@@ -12,7 +12,7 @@
       <router-view></router-view>
       </router-link>
       <div class="search-login">
-        <a href="#">登录</a>
+        <router-link to="/login">登录</router-link>
       </div>
     </div>
     <div class="triangle-left"></div>
