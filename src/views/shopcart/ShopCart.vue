@@ -6,7 +6,8 @@
       <div class="right" slot="right"></div>
     </div>
     <!-- <jd-cart></jd-cart> -->
-    <component :is="cartName"></component>
+    <component :is="this.$store.state.weiden"></component>
+    <nav-bar></nav-bar>
   </div>
 </template>
 
@@ -17,9 +18,9 @@ import JdCart from "./childComps/JdCart";
 
 export default {
   name: "ShopCart",
-  data() {
-    return { cartName: "empty-cart" };
-  },
+  // data() {
+  //   return { cartName: "empty-cart" };
+  // },
   components: {
     "nav-bar": NavBar,
     "empty-cart": EmptyCart,
@@ -30,11 +31,11 @@ export default {
       this.$router.go(-1);
     }
   },
-  mounted() {
-    if (this.$store.state.status == "login") {
-      this.cartName="jd-cart"
-    }
-  }
+  // mounted() {
+  //   if (this.$store.state.status == "login") {
+  //     this.cartName="jd-cart"
+  //   }
+  // }
 };
 </script>
 

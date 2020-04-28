@@ -9,14 +9,17 @@ export default new Vuex.Store({
     tabBarName: "main-tab-bar",
     telephoneNumber: '15828518276',
     code: '123456',
+    weiden:"empty-cart",
     shopCart: [],
     total: 0,
     number:0,
+    out:0
   },
   mutations: {
     changeStatus(state) {
       state.status = "login",
-        state.tabBarName = "tab-bar-login-after"
+        state.tabBarName = "tab-bar-login-after",
+        state.weiden = "jd-cart"
     },
     shopCartPush(state, item) {
       let index = state.shopCart.findIndex(function (i) {
@@ -41,7 +44,9 @@ export default new Vuex.Store({
     getTotal(state) {
       state.total = 0;
       state.shopCart.forEach(item => {
-        state.total = item.price * item.num;
+
+      state.out = item.price * item.num;
+      state.total +=state.out
       });
     },
     getNum(state){
