@@ -254,7 +254,7 @@ export default {
           desc:
             "罗宾尼(lobinni)品牌正品手表男士全自动机械表镂空超薄商务休闲时尚瑞士风格腕表皮带防水名表男款",
           detail: this.$refs.title.innerText,
-          price: this.$refs.price.innerText
+          price: this.$refs.price.innerText,
         });
       }
     },

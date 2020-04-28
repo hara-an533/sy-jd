@@ -19,7 +19,7 @@
           </div>
           <div class="sku-tag">{{ item.detail }}</div>
           <div class="price">
-            <span>￥{{ item.price }}</span>
+            <span>￥{{item.price*item.num}}</span>
             <div class="num_wrap">
               <span class="minus" @click="minus(index)"></span>
               <input type="text" :value="item.num" ref="inp" />
@@ -38,7 +38,7 @@
         <i ref="icon"></i>
         全选
       </div>
-      <div>
+      <div class="ouyprice">
         总计:
         <span>￥</span>
         <span ref="price">0.00</span>
@@ -394,5 +394,10 @@ export default {
   padding-left: 5px;
   background-image: linear-gradient(135deg, #f2270c, #f2270c 70%, #f24d0c);
   box-shadow: 0 6px 12px 0 rgba(255, 65, 66, 0.2);
+}
+
+.ouyprice {
+  position: fixed;
+  bottom: 45px;
 }
 </style>
