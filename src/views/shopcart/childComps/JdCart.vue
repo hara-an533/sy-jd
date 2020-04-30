@@ -398,6 +398,6 @@ export default {
 
 .ouyprice {
   position: absolute;
-  bottom: -25px;
+  bottom: 0;
 }
 </style>

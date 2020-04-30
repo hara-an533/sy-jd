@@ -5,9 +5,7 @@
       <div class="center" slot="center">购物车</div>
       <div class="right" slot="right"></div>
     </div>
-    <!-- <jd-cart></jd-cart> -->
     <component :is="this.$store.state.weiden"></component>
-    <nav-bar></nav-bar>
   </div>
 </template>
 
