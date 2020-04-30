@@ -11,7 +11,7 @@
       <div class="item">
         <i class="icon_select"></i>
         <div class="img">
-          <img :src="item.url" width="100px" height="100px" alt @click="skipTo"/>
+          <img :src="item.url" width="100px" height="100px" alt @click="skipTo" />
         </div>
         <div class="content">
           <div class="name">
@@ -45,8 +45,7 @@
       </div>
       <div class="buy" ref="shopping">
         去结算(
-        <span ref="num">0.00</span>
-        件）
+        <span ref="num">0</span>件）
       </div>
     </div>
   </div>
@@ -91,18 +90,22 @@ export default {
     minus(index) {
       console.log(index);
       this.$store.commit("minus", index);
-      this.$store.commit("getTotal");
-      this.$refs.price.innerText = this.$store.state.total;
-      this.$store.commit("getNum");
-      this.$refs.num.innerText = this.$store.state.number;
+      if (this.flag == true) {
+        this.$store.commit("getTotal");
+        this.$refs.price.innerText = this.$store.state.total;
+        this.$store.commit("getNum");
+        this.$refs.num.innerText = this.$store.state.number;
+      }
     },
     add(index) {
       console.log(index);
       this.$store.commit("plus", index);
-      this.$store.commit("getTotal");
-      this.$refs.price.innerText = this.$store.state.total;
-      this.$store.commit("getNum");
-      this.$refs.num.innerText = this.$store.state.number;
+      if (this.flag == true) {
+        this.$store.commit("getTotal");
+        this.$refs.price.innerText = this.$store.state.total;
+        this.$store.commit("getNum");
+        this.$refs.num.innerText = this.$store.state.number;
+      }
     },
     del(index) {
       this.$store.commit("delItem", index);
@@ -111,8 +114,14 @@ export default {
       this.$store.commit("getNum");
       this.$refs.num.innerText = this.$store.state.number;
     },
-    skipTo(){
-      this.$router.push({path:"/main/home/ProductDetails"})
+    skipTo() {
+      this.$router.push({ path: "/main/home/ProductDetails" });
+    }
+  },
+  created(){
+    if(this.$store.state.shopCart.length<=0){
+      this.flag==false;
+      this.$refs.icon.style.backgroundPosition = "-60px -48px";
     }
   }
 };
@@ -366,7 +375,7 @@ export default {
   left: 2px;
   width: 20px;
   height: 20px;
-  background: url(../../../assets/images/sprite.png) no-repeat -60px -48px;
+  background: url(../../../assets/images/sprite.png) no-repeat 0px -68px;
   background-size: 116px auto;
 }
 

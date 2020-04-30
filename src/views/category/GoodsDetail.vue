@@ -110,7 +110,6 @@ export default {
       this.$refs.detail.style.top = this.y + this.moveY + "px";
       this.minTop =
         this.$refs.pro.offsetHeight - this.$refs.detail.offsetHeight;
-      // console.log(this.$refs);
     },
     touchEnd(e) {
       if (this.moveY < 0) {
