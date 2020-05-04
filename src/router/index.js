@@ -40,11 +40,11 @@ const routes = [
         name: 'Category',
         component: Category,
       },
-      {
-        path: 'surprise',
-        name: 'Surprise',
-        component: Surprise
-      },
+      // {
+      //   path: 'surprise',
+      //   name: 'Surprise',
+      //   component: Surprise
+      // },
       {
         path: 'shopcart',
         name: 'ShopCart',
