@@ -9,15 +9,15 @@
             <div class="countdown-zone">
               <div class="countdown pure-css-countdown active">
                 <div class="li">
-                  <div class="digits-wrapper hours">{{this.hou}}</div>
+                  <div class="digits-wrapper-hours">{{this.hou}}</div>
                 </div>
-                <span class="dian">:</span>
+                <p class="dian">:</p>
                 <div class="li">
-                  <div class="digits-wrapper minutes">{{min}}</div>
+                  <div class="digits-wrapper-minutes">{{min}}</div>
                 </div>
-                 <span class="dian">:</span>
+                 <p class="dian">:</p>
                 <div class="li">
-                  <div class="digits-wrapper seconds">{{sec}}</div>
+                  <div class="digits-wrapper-seconds">{{sec}}</div>
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default {
 
 <style scoped>
 .seckill {
-  width: 100%;
+  width: 98%;
   height: 35.95px;
   /* border: 1px solid red; */
   margin: 0 auto;
@@ -118,6 +118,7 @@ button[disabled] {
 
 .time {
     margin-left: 5px;
+    margin-top: 5px;
 }
 .countdown {
   display: flex;
@@ -135,7 +136,8 @@ button[disabled] {
 }
 
 .dian {
-    margin-top: -2px;
+    margin-top: -5px;
+    margin-left: 5px;
 }
 
 .Seckill {
@@ -143,7 +145,7 @@ button[disabled] {
     height: 35px;
     color: #f23030;
     font-size: 10px;
-    margin-left: 120px;
+    margin-left: 80px;
     margin-top: 32px;
 }
 
@@ -152,12 +154,16 @@ button[disabled] {
    height: 12px;
    margin-top: -5px;
    position: absolute;
-   left:345px;
+   left:305px;
    top:14px;
 }
 
 .skil-more img {
     width: 100%;
     height: 100%;
+}
+
+.digits-wrapper-hours {
+  margin-right: 5px;
 }
 </style>

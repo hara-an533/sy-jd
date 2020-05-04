@@ -91,7 +91,7 @@ export default {
 }
 
 .marquee {
-  width: 283px;
+  width: 225px;
   height: 19.85px;
   align-items:center;
   color: #3a3a3a;

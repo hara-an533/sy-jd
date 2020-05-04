@@ -98,6 +98,6 @@ export default {
 .jinxi {
 	color: transparent;
   font-size: 6px;
-  padding-top: 17px;
+  padding-top: 3px;
 }
 </style>

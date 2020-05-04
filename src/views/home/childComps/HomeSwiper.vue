@@ -98,10 +98,12 @@ export default {
 }
 
 .nav-bar {
-  width: 100%;
+  width: 98%;
   height: 44px;
   overflow: hidden;
   background-color: #c82519;
+  margin: 0 auto;
+  z-index: 999;
 }
 
 .nav-bar a {
@@ -189,14 +191,18 @@ export default {
 
 .triangle-left {
   left: -46px;
+  top:128px;
   border-right: 45px solid #f6f6f6;
   transform: rotate(-45deg);
+  /* background: #19c893; */
 }
 
 .triangle-right {
-  right: -45px;
-  border-left: 45px solid #f6f6f6;
-  transform: rotate(45deg);
+  top:108px;
+  right: 0px;
+  border-right: 45px solid #f6f6f6;
+  transform: rotate(0deg);
+  /* background: #19c893; */
 }
 
 .home-swiper {

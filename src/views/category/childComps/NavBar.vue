@@ -24,6 +24,7 @@ export default {
   /* position: relative; */
   padding-bottom: 3px;
   border-bottom: 1px solid #ededed;
+  background: white;
 }
 .left {
   background-color: tomato;

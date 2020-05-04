@@ -62,7 +62,7 @@ export default {
     /* border: 1px solid red; */
 }
 
-.bptext::after {
+/* .bptext::after {
     content: "";
     display: inline-block;
     height: 43%;
@@ -93,7 +93,7 @@ export default {
     position: absolute;
     right: 111px;
     top: 33%;
-}
+} */
 
 .buttoms-middle {
     width: 100%;

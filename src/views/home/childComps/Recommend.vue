@@ -296,7 +296,7 @@ export default {
 .backtop {
   position: fixed;
   bottom: 90px;
-  left:270px;
+  left:205px;
   /* background: white; */
   z-index: 999;
   width: 38px;
